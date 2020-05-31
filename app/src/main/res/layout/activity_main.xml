@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="5dp" >
+                <Button
+                    android:id="@+id/btnSelectPhoto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="300dp"
+                    android:background="@drawable/ic_photo_camera_black_24dp"/>
+            </LinearLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="10dp" >
+
+                <ImageView
+                    android:id="@+id/viewImage"
+                    android:layout_width="250dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_height="255dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/person_icon"
+                    />
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="300dp"
+                android:background="#3F51B5"
+                android:text="Profile"
+                android:textAlignment="center"
+                android:textColor="#EEECEC"
+                android:textSize="24sp" />
+
+            <Button
+                android:id="@+id/saveBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="150dp"
+                android:layout_marginTop="1150dp"
+                android:shadowColor="#00575252"
+                android:shadowDx="5"
+                android:text="Save PDf"
+                tools:layout_editor_absoluteX="151dp"
+                tools:layout_editor_absoluteY="404dp" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="350dp"
+                android:text="Name"
+                tools:layout_editor_absoluteX="54dp"
+                tools:layout_editor_absoluteY="65dp" />
+
+            <EditText
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="150dp"
+                android:layout_marginTop="340dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text=""
+                tools:layout_editor_absoluteX="151dp"
+                tools:layout_editor_absoluteY="47dp" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="405dp"
+                android:text="Email-id"
+                tools:layout_editor_absoluteX="54dp"
+                tools:layout_editor_absoluteY="146dp" />
+
+            <EditText
+                android:id="@+id/email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="150dp"
+                android:layout_marginTop="390dp"
+                android:ems="10"
+                android:inputType="textEmailAddress"
+                tools:layout_editor_absoluteX="151dp"
+                tools:layout_editor_absoluteY="119dp" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="460dp"
+                android:text="Phone"
+                tools:layout_editor_absoluteX="54dp"
+                tools:layout_editor_absoluteY="223dp" />
+
+            <EditText
+                android:id="@+id/phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="150dp"
+                android:layout_marginTop="445dp"
+                android:ems="10"
+                android:inputType="phone"
+                tools:layout_editor_absoluteX="150dp"
+                tools:layout_editor_absoluteY="196dp" />
+
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="520dp"
+                android:background="#3F51B5"
+                android:text="Qualifications"
+                android:textAlignment="center"
+                android:textColor="#EEECEC"
+                android:textSize="24sp" />
+
+
+
+                <TableLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="580dp">
+
+
+                    <TableRow>
+
+
+                        <TextView
+                            android:layout_marginLeft="25dp"
+                            android:text="Education" />
+
+                        <TextView
+                            android:layout_marginLeft="80dp"
+                            android:text="Institution" />
+
+                        <TextView
+                            android:layout_marginLeft="50dp"
+                            android:text="Percentage/CGPA" />
+                    </TableRow>
+
+                    <TableRow>
+
+                        <TextView
+                            android:layout_marginLeft="25dp"
+                            android:text="Class X" />
+
+                        <EditText
+                            android:id="@+id/t11"
+                            android:layout_marginLeft="80dp"
+                            android:text="" />
+
+                        <EditText
+                            android:id="@+id/t12"
+                            android:layout_marginLeft="50dp"
+                            android:text="" />
+                    </TableRow>
+
+                    <TableRow>
+
+                        <TextView
+                            android:layout_marginLeft="25dp"
+                            android:text="Class XII" />
+
+                        <EditText
+                            android:id="@+id/t21"
+                            android:layout_marginLeft="80dp"
+                            android:text="" />
+
+                        <EditText
+                            android:id="@+id/t22"
+                            android:layout_marginLeft="50dp"
+                            android:text="" />
+                    </TableRow>
+
+                    <TableRow>
+
+                        <TextView
+                            android:layout_marginLeft="25dp"
+                            android:text="Bachlor's" />
+
+                        <EditText
+                            android:id="@+id/t31"
+                            android:layout_marginLeft="80dp"
+                            android:text="" />
+
+                        <EditText
+                            android:id="@+id/t32"
+                            android:layout_marginLeft="50dp"
+                            android:text="" />
+                    </TableRow>
+
+                    <TableRow>
+
+                        <TextView
+                            android:layout_marginLeft="25dp"
+                            android:text="Master's" />
+
+                        <EditText
+                            android:id="@+id/t41"
+                            android:layout_marginLeft="80dp"
+                            android:text="" />
+
+                        <EditText
+                            android:id="@+id/t42"
+                            android:layout_marginLeft="50dp"
+                            android:text="" />
+                    </TableRow>
+
+                    <TableRow>
+
+                        <TextView
+                            android:layout_marginLeft="25dp"
+                            android:text="Phd." />
+
+                        <EditText
+                            android:id="@+id/t51"
+                            android:layout_marginLeft="80dp"
+                            android:text="" />
+
+                        <EditText
+                            android:id="@+id/t52"
+                            android:layout_marginLeft="50dp"
+                            android:text="" />
+                    </TableRow>
+
+                </TableLayout>
+
+
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="825dp"
+                android:background="#3F51B5"
+                android:text="Skills"
+                android:textAlignment="center"
+                android:textColor="#EEECEC"
+                android:textSize="24sp" />
+
+            <EditText
+                android:id="@+id/skills"
+                android:layout_width="wrap_content"
+                android:layout_height="50sp"
+                android:layout_marginLeft="100dp"
+                android:layout_marginTop="860dp"
+                android:ems="10"
+                android:inputType="textMultiLine"
+                android:nestedScrollingEnabled="true"/>
+
+
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="920dp"
+                android:background="#3F51B5"
+                android:text="Experience"
+                android:textAlignment="center"
+                android:textColor="#EEECEC"
+                android:textSize="24sp" />
+
+            <EditText
+                android:id="@+id/experience"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="100dp"
+                android:layout_marginTop="960dp"
+                android:ems="10"
+                android:inputType="textMultiLine"
+                android:nestedScrollingEnabled="true"/>
+
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1020dp"
+                android:background="#3F51B5"
+                android:text="Awards"
+                android:textAlignment="center"
+                android:textColor="#EEECEC"
+                android:textSize="24sp" />
+
+            <EditText
+                android:id="@+id/awards"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="100dp"
+                android:layout_marginTop="1080dp"
+                android:ems="10"
+                android:inputType="textMultiLine"
+                android:nestedScrollingEnabled="true"/>
+
+
+        </RelativeLayout>
+
+
+    </ScrollView>
+
+</RelativeLayout>
