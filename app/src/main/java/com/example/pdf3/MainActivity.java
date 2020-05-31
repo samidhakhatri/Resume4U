@@ -40,10 +40,12 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Locale;
 
 import com.itextpdf.text.Chunk;
 import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.FontFactory;
 import com.itextpdf.text.Image;
 import com.itextpdf.text.Paragraph;
@@ -129,13 +131,21 @@ public class MainActivity extends AppCompatActivity {
                     }
 
                     else {
-                        savePdf();
+                        try {
+                            savePdf();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
                     }
 
                 }
 
                 else {
-                    savePdf();
+                    try {
+                        savePdf();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                 }
 
                 }
@@ -145,18 +155,28 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void savePdf(){
+    private void savePdf() throws FileNotFoundException, DocumentException {
+
+        File pdfFolder = new File(Environment.getExternalStoragePublicDirectory(
+                Environment.DIRECTORY_DOCUMENTS), "pdfdemo");
+        if (!pdfFolder.exists()) {
+            pdfFolder.mkdir();
+            System.out.println("Pdf Directory created");
+        }
+
+        Date date = new Date() ;
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(date);
+
+        File myFile = new File(pdfFolder + timeStamp + ".pdf");
+
+        OutputStream output= new FileOutputStream(myFile);
 
         Document mDoc=new Document();
-
-        String mFileName=new SimpleDateFormat("yyyyMMdd_HHmmss",
-                Locale.getDefault()).format(System.currentTimeMillis());
-
-        String mFilePath= Environment.getExternalStorageDirectory() +"/Docs/PDF/"+mFileName+".pdf";
+        PdfWriter.getInstance(mDoc,output);
 
         try{
 
-            PdfWriter.getInstance(mDoc,new FileOutputStream(mFilePath));
+
 
             mDoc.open();
 
@@ -323,11 +343,9 @@ public class MainActivity extends AppCompatActivity {
                 mDoc.add(new Chunk(mText16, FontFactory.getFont(FontFactory.TIMES_ROMAN, fntsize)));
             }
 
-
-
             mDoc.close();
 
-            Toast.makeText(this,mFileName+".pdf\nis saved to\n"+ mFilePath,Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"PDF saved at"+ pdfFolder + timeStamp + ".pdf",Toast.LENGTH_SHORT).show();
 
         }
         catch(Exception e){
@@ -343,7 +361,13 @@ public class MainActivity extends AppCompatActivity {
         switch(requestCode){
             case STORAGE_CODE:
                 if(grantResults.length>0&& grantResults[0]==PackageManager.PERMISSION_GRANTED){
-                    savePdf();
+                    try {
+                        savePdf();
+                    } catch (FileNotFoundException e) {
+                        e.printStackTrace();
+                    } catch (DocumentException e) {
+                        e.printStackTrace();
+                    }
 
                 }
 
