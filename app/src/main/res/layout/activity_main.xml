@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
 
@@ -11,252 +12,252 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:padding="5dp" >
+                android:orientation="vertical"
+                android:padding="5dp">
+
                 <Button
                     android:id="@+id/btnSelectPhoto"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="50dp"
                     android:layout_marginLeft="300dp"
-                    android:background="@drawable/ic_photo_camera_black_24dp"/>
-            </LinearLayout>
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:padding="10dp" >
+                    android:background="@drawable/ic_photo_camera_black_24dp" />
 
                 <ImageView
                     android:id="@+id/viewImage"
-                    android:layout_width="250dp"
-                    android:layout_centerHorizontal="true"
-                    android:layout_height="255dp"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:layout_gravity="center_horizontal"
                     android:layout_marginTop="20dp"
-                    android:background="@drawable/person_icon"
-                    />
-            </RelativeLayout>
+                    android:background="@drawable/person_icon" />
+            </LinearLayout>
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="412dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="300dp"
+                android:layout_marginTop="20dp"
                 android:background="#3F51B5"
                 android:text="Profile"
                 android:textAlignment="center"
                 android:textColor="#EEECEC"
                 android:textSize="24sp" />
 
-            <Button
-                android:id="@+id/saveBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="150dp"
-                android:layout_marginTop="1150dp"
-                android:shadowColor="#00575252"
-                android:shadowDx="5"
-                android:text="Save PDf"
-                tools:layout_editor_absoluteX="151dp"
-                tools:layout_editor_absoluteY="404dp" />
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="170dp">
 
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="350dp"
-                android:text="Name"
-                tools:layout_editor_absoluteX="54dp"
-                tools:layout_editor_absoluteY="65dp" />
+                <TableRow android:layout_marginTop="5dp">
 
-            <EditText
-                android:id="@+id/name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="150dp"
-                android:layout_marginTop="340dp"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text=""
-                tools:layout_editor_absoluteX="151dp"
-                tools:layout_editor_absoluteY="47dp" />
+                    <TextView
+                        android:id="@+id/textView"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_weight="1"
+                        android:text="Name" />
 
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="405dp"
-                android:text="Email-id"
-                tools:layout_editor_absoluteX="54dp"
-                tools:layout_editor_absoluteY="146dp" />
+                    <EditText
+                        android:id="@+id/name"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="20dp"
+                        android:layout_weight="2"
+                        android:ems="10"
+                        android:inputType="textPersonName"
+                        android:text="" />
 
-            <EditText
-                android:id="@+id/email"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="150dp"
-                android:layout_marginTop="390dp"
-                android:ems="10"
-                android:inputType="textEmailAddress"
-                tools:layout_editor_absoluteX="151dp"
-                tools:layout_editor_absoluteY="119dp" />
+                </TableRow>
 
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="460dp"
-                android:text="Phone"
-                tools:layout_editor_absoluteX="54dp"
-                tools:layout_editor_absoluteY="223dp" />
+                <TableRow android:layout_marginTop="5dp">
 
-            <EditText
-                android:id="@+id/phone"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="150dp"
-                android:layout_marginTop="445dp"
-                android:ems="10"
-                android:inputType="phone"
-                tools:layout_editor_absoluteX="150dp"
-                tools:layout_editor_absoluteY="196dp" />
+                    <TextView
+                        android:id="@+id/textView2"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_weight="1"
+                        android:text="Email-id" />
+
+                    <EditText
+                        android:id="@+id/email"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="20dp"
+                        android:layout_weight="2"
+                        android:ems="10"
+                        android:inputType="textEmailAddress" />
+
+                </TableRow>
+
+                <TableRow android:layout_marginTop="5dp">
+
+                    <TextView
+                        android:id="@+id/textView3"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_weight="1"
+                        android:text="Phone" />
+
+                    <EditText
+                        android:id="@+id/phone"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="20dp"
+                        android:layout_weight="2"
+                        android:ems="10"
+                        android:inputType="phone" />
+
+                </TableRow>
+            </TableLayout>
 
             <TextView
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="520dp"
                 android:background="#3F51B5"
                 android:text="Qualifications"
                 android:textAlignment="center"
                 android:textColor="#EEECEC"
                 android:textSize="24sp" />
 
-
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
                 <TableLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="580dp">
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp">
 
 
-                    <TableRow>
+                    <TableRow android:layout_marginTop="10dp">
 
 
                         <TextView
-                            android:layout_marginLeft="25dp"
+                            android:layout_marginLeft="10dp"
                             android:text="Education" />
 
                         <TextView
-                            android:layout_marginLeft="80dp"
+                            android:layout_marginLeft="70dp"
                             android:text="Institution" />
 
                         <TextView
                             android:layout_marginLeft="50dp"
+                            android:layout_marginRight="10dp"
                             android:text="Percentage/CGPA" />
                     </TableRow>
 
                     <TableRow>
 
                         <TextView
-                            android:layout_marginLeft="25dp"
+                            android:layout_marginLeft="10dp"
                             android:text="Class X" />
 
                         <EditText
                             android:id="@+id/t11"
-                            android:layout_marginLeft="80dp"
+                            android:layout_marginLeft="70dp"
                             android:text="" />
 
                         <EditText
                             android:id="@+id/t12"
                             android:layout_marginLeft="50dp"
+                            android:layout_marginRight="10dp"
                             android:text="" />
+
                     </TableRow>
 
                     <TableRow>
 
                         <TextView
-                            android:layout_marginLeft="25dp"
+                            android:layout_marginLeft="10dp"
                             android:text="Class XII" />
 
                         <EditText
                             android:id="@+id/t21"
-                            android:layout_marginLeft="80dp"
+                            android:layout_marginLeft="70dp"
                             android:text="" />
 
                         <EditText
                             android:id="@+id/t22"
                             android:layout_marginLeft="50dp"
+                            android:layout_marginRight="10dp"
                             android:text="" />
+
                     </TableRow>
 
                     <TableRow>
 
                         <TextView
-                            android:layout_marginLeft="25dp"
+                            android:layout_marginLeft="10dp"
                             android:text="Bachlor's" />
 
                         <EditText
                             android:id="@+id/t31"
-                            android:layout_marginLeft="80dp"
+                            android:layout_marginLeft="70dp"
                             android:text="" />
 
                         <EditText
                             android:id="@+id/t32"
                             android:layout_marginLeft="50dp"
+                            android:layout_marginRight="10dp"
                             android:text="" />
+
                     </TableRow>
 
                     <TableRow>
 
                         <TextView
-                            android:layout_marginLeft="25dp"
+                            android:layout_marginLeft="10dp"
                             android:text="Master's" />
 
                         <EditText
                             android:id="@+id/t41"
-                            android:layout_marginLeft="80dp"
+                            android:layout_marginLeft="70dp"
                             android:text="" />
 
                         <EditText
                             android:id="@+id/t42"
                             android:layout_marginLeft="50dp"
+                            android:layout_marginRight="10dp"
                             android:text="" />
+
                     </TableRow>
 
-                    <TableRow>
+                    <TableRow android:layout_marginBottom="10dp">
 
                         <TextView
-                            android:layout_marginLeft="25dp"
+                            android:layout_marginLeft="10dp"
                             android:text="Phd." />
 
                         <EditText
                             android:id="@+id/t51"
-                            android:layout_marginLeft="80dp"
+                            android:layout_marginLeft="70dp"
                             android:text="" />
 
                         <EditText
                             android:id="@+id/t52"
                             android:layout_marginLeft="50dp"
+                            android:layout_marginRight="10dp"
                             android:text="" />
+
                     </TableRow>
 
                 </TableLayout>
+            </HorizontalScrollView>
 
 
             <TextView
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="825dp"
                 android:background="#3F51B5"
                 android:text="Skills"
                 android:textAlignment="center"
@@ -268,7 +269,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="50sp"
                 android:layout_marginLeft="100dp"
-                android:layout_marginTop="860dp"
                 android:ems="10"
                 android:inputType="textMultiLine"
                 android:nestedScrollingEnabled="true"/>
@@ -278,7 +278,6 @@
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="920dp"
                 android:background="#3F51B5"
                 android:text="Experience"
                 android:textAlignment="center"
@@ -290,7 +289,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="100dp"
-                android:layout_marginTop="960dp"
                 android:ems="10"
                 android:inputType="textMultiLine"
                 android:nestedScrollingEnabled="true"/>
@@ -299,7 +297,6 @@
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="1020dp"
                 android:background="#3F51B5"
                 android:text="Awards"
                 android:textAlignment="center"
@@ -311,15 +308,22 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="100dp"
-                android:layout_marginTop="1080dp"
                 android:ems="10"
                 android:inputType="textMultiLine"
                 android:nestedScrollingEnabled="true"/>
+            <Button
+                android:id="@+id/saveBtn"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:shadowColor="#00575252"
+                android:shadowDx="5"
+                android:text="Save PDf" />
 
 
-        </RelativeLayout>
+        </LinearLayout>
 
 
     </ScrollView>
 
-</RelativeLayout>
+</LinearLayout>
