@@ -60,7 +60,7 @@ import com.itextpdf.text.Image;
 
 public class MainActivity extends AppCompatActivity {
 
-
+    private static final  int UNIQUE_REQUEST_CODE=29389;
     private  static final int STORAGE_CODE=1000;
     EditText et1,et2,et3,et4,et5,et6,et7,et8,et9,et10,et11,et12,et13,et14,et15,et16,et17,et18,et19,et20;
     Button mSaveBtn;
@@ -79,6 +79,12 @@ public class MainActivity extends AppCompatActivity {
         song=MediaPlayer.create(MainActivity.this,R.raw.song);
         song.setLooping(true);
         song.start();
+
+        if(ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE)!=
+                PackageManager.PERMISSION_GRANTED){
+            ActivityCompat.requestPermissions(MainActivity.this,
+                    new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, UNIQUE_REQUEST_CODE);
+        }
 
 
 
@@ -118,41 +124,16 @@ public class MainActivity extends AppCompatActivity {
         mSaveBtn.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
 
-
-
-
-                if(Build.VERSION.SDK_INT>Build.VERSION_CODES.M) {
-
-                    if (checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) ==
-                            PackageManager.PERMISSION_GRANTED) {
-
-                        String[] permissions = {Manifest.permission.WRITE_EXTERNAL_STORAGE};
-                        requestPermissions(permissions, STORAGE_CODE);
-                    }
-
-                    else {
-                        try {
-                            savePdf();
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                    }
-
+                try {
+                    savePdf();
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                } catch (DocumentException e) {
+                    e.printStackTrace();
                 }
+            }
 
-                else {
-                    try {
-                        savePdf();
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                }
-
-                }
-
-
-        });
-
+    });
     }
 
     private void savePdf() throws FileNotFoundException, DocumentException {
@@ -197,17 +178,19 @@ public class MainActivity extends AppCompatActivity {
             String mText15=et15.getText().toString();
             String mText16=et16.getText().toString();
 
-
-
-            mDoc.addAuthor("Samidha");
-
             float fntsize=20.7f;
             PdfPTable pdfPTable = new PdfPTable(3);
 
             //Create cells
             PdfPCell pdfPCell1 = new PdfPCell(new Paragraph("Education",FontFactory.getFont(FontFactory.TIMES_BOLD,fntsize)));
+            pdfPCell1.setPaddingLeft(10);
+            pdfPCell1.setPaddingBottom(10);
             PdfPCell pdfPCell2 = new PdfPCell(new Paragraph("Institution",FontFactory.getFont(FontFactory.TIMES_BOLD,fntsize)));
+            pdfPCell2.setPaddingLeft(10);
+            pdfPCell2.setPaddingBottom(10);
             PdfPCell pdfPCell3 = new PdfPCell(new Paragraph("Percentage/cgpa",FontFactory.getFont(FontFactory.TIMES_BOLD,fntsize)));
+            pdfPCell3.setPaddingLeft(10);
+            pdfPCell3.setPaddingBottom(10);
 
             pdfPTable.addCell(pdfPCell1);
             pdfPTable.addCell(pdfPCell2);
@@ -215,9 +198,15 @@ public class MainActivity extends AppCompatActivity {
 
             if(!mText4.isEmpty()) {
                 PdfPCell pdfPCell4 = new PdfPCell(new Paragraph("Class X", FontFactory.getFont(FontFactory.TIMES_BOLD, fntsize)));
-
+                pdfPCell4.setPaddingLeft(10);
+                pdfPCell4.setPaddingBottom(10);
                 PdfPCell pdfPCell5 = new PdfPCell(new Paragraph(mText4, FontFactory.getFont(FontFactory.TIMES_ROMAN, fntsize)));
+                pdfPCell5.setPaddingLeft(10);
+                pdfPCell5.setPaddingBottom(10);
                 PdfPCell pdfPCell6 = new PdfPCell(new Paragraph(mText5, FontFactory.getFont(FontFactory.TIMES_ROMAN, fntsize)));
+                pdfPCell6.setPaddingLeft(10);
+                pdfPCell6.setPaddingBottom(10);
+
                 pdfPTable.addCell(pdfPCell4);
                 pdfPTable.addCell(pdfPCell5);
                 pdfPTable.addCell(pdfPCell6);
@@ -228,8 +217,14 @@ public class MainActivity extends AppCompatActivity {
 
 
                 PdfPCell pdfPCell7 = new PdfPCell(new Paragraph("Class XII", FontFactory.getFont(FontFactory.TIMES_BOLD, fntsize)));
+                pdfPCell7.setPaddingLeft(10);
+                pdfPCell7.setPaddingBottom(10);
                 PdfPCell pdfPCell8 = new PdfPCell(new Paragraph(mText6, FontFactory.getFont(FontFactory.TIMES_ROMAN, fntsize)));
+                pdfPCell8.setPaddingLeft(10);
+                pdfPCell8.setPaddingBottom(10);
                 PdfPCell pdfPCell9 = new PdfPCell(new Paragraph(mText7, FontFactory.getFont(FontFactory.TIMES_ROMAN, fntsize)));
+                pdfPCell9.setPaddingLeft(10);
+                pdfPCell9.setPaddingBottom(10);
 
                 pdfPTable.addCell(pdfPCell7);
                 pdfPTable.addCell(pdfPCell8);
@@ -238,8 +233,14 @@ public class MainActivity extends AppCompatActivity {
 
             if(!mText8.isEmpty()) {
                 PdfPCell pdfPCell10 = new PdfPCell(new Paragraph("Bachelor's", FontFactory.getFont(FontFactory.TIMES_BOLD, fntsize)));
+                pdfPCell10.setPaddingLeft(10);
+                pdfPCell10.setPaddingBottom(10);
                 PdfPCell pdfPCell11 = new PdfPCell(new Paragraph(mText8, FontFactory.getFont(FontFactory.TIMES_ROMAN, fntsize)));
+                pdfPCell11.setPaddingLeft(10);
+                pdfPCell11.setPaddingBottom(10);
                 PdfPCell pdfPCell12 = new PdfPCell(new Paragraph(mText9, FontFactory.getFont(FontFactory.TIMES_ROMAN, fntsize)));
+                pdfPCell12.setPaddingLeft(10);
+                pdfPCell12.setPaddingBottom(10);
 
 
                 pdfPTable.addCell(pdfPCell10);
@@ -249,8 +250,14 @@ public class MainActivity extends AppCompatActivity {
 
             if(!mText10.isEmpty()) {
                 PdfPCell pdfPCell13 = new PdfPCell(new Paragraph("Master's", FontFactory.getFont(FontFactory.TIMES_BOLD, fntsize)));
+                pdfPCell13.setPaddingLeft(10);
+                pdfPCell13.setPaddingBottom(10);
                 PdfPCell pdfPCell14 = new PdfPCell(new Paragraph(mText10, FontFactory.getFont(FontFactory.TIMES_ROMAN, fntsize)));
+                pdfPCell14.setPaddingLeft(10);
+                pdfPCell14.setPaddingBottom(10);
                 PdfPCell pdfPCell15 = new PdfPCell(new Paragraph(mText11, FontFactory.getFont(FontFactory.TIMES_ROMAN, fntsize)));
+                pdfPCell15.setPaddingLeft(10);
+                pdfPCell15.setPaddingBottom(10);
 
                 pdfPTable.addCell(pdfPCell13);
                 pdfPTable.addCell(pdfPCell14);
@@ -259,8 +266,14 @@ public class MainActivity extends AppCompatActivity {
 
             if(!mText12.isEmpty()) {
                 PdfPCell pdfPCell16 = new PdfPCell(new Paragraph("Phd.", FontFactory.getFont(FontFactory.TIMES_BOLD, fntsize)));
+                pdfPCell16.setPaddingLeft(10);
+                pdfPCell16.setPaddingBottom(10);
                 PdfPCell pdfPCell17 = new PdfPCell(new Paragraph(mText12, FontFactory.getFont(FontFactory.TIMES_ROMAN, fntsize)));
+                pdfPCell17.setPaddingLeft(10);
+                pdfPCell17.setPaddingBottom(10);
                 PdfPCell pdfPCell18 = new PdfPCell(new Paragraph(mText13, FontFactory.getFont(FontFactory.TIMES_ROMAN, fntsize)));
+                pdfPCell17.setPaddingLeft(10);
+                pdfPCell17.setPaddingBottom(10);
 
 
                 pdfPTable.addCell(pdfPCell16);
@@ -268,30 +281,20 @@ public class MainActivity extends AppCompatActivity {
                 pdfPTable.addCell(pdfPCell18);
             }
 
-
-
-
-
-
-
-
             float a= mDoc.getPageSize().getWidth();
             float b=mDoc.getPageSize().getHeight();
 
 
             Rectangle rect1= new Rectangle(20,20,a-20,b-20);
-
             rect1.setBorder(Rectangle.BOX);
             rect1.setBorderWidth(5);
-            rect1.setBorderColor(BaseColor.BLUE);
-
+            rect1.setBorderColor(BaseColor.BLACK);
             mDoc.add(rect1);
 
             Rectangle rect2= new Rectangle(30,30,a-30,b-30);
-
             rect2.setBorder(Rectangle.BOX);
             rect2.setBorderWidth(2);
-            rect2.setBorderColor(BaseColor.BLUE);
+            rect2.setBorderColor(BaseColor.BLACK);
             mDoc.add(rect2);
 
 
@@ -331,7 +334,7 @@ public class MainActivity extends AppCompatActivity {
 
             if(!mText14.isEmpty()) {
 
-                mDoc.add(new Paragraph("\n\nSKILLS\n", FontFactory.getFont(FontFactory.TIMES_BOLDITALIC, fntsize)));
+                mDoc.add(new Chunk("\n\nSKILLS\n", FontFactory.getFont(FontFactory.TIMES_BOLDITALIC, fntsize)));
                 mDoc.add(new Chunk(mText14, FontFactory.getFont(FontFactory.TIMES_ROMAN, fntsize)));
             }
             if(!mText15.isEmpty()) {
@@ -357,25 +360,13 @@ public class MainActivity extends AppCompatActivity {
 
     public void onRequestPermissionsResult(int requestCode,String[] permissions,int[] grantResults ){
 
-
-        switch(requestCode){
-            case STORAGE_CODE:
-                if(grantResults.length>0&& grantResults[0]==PackageManager.PERMISSION_GRANTED){
-                    try {
-                        savePdf();
-                    } catch (FileNotFoundException e) {
-                        e.printStackTrace();
-                    } catch (DocumentException e) {
-                        e.printStackTrace();
-                    }
-
+            if(requestCode== UNIQUE_REQUEST_CODE){
+                if(grantResults[0]== PackageManager.PERMISSION_GRANTED){
+                    Toast.makeText(MainActivity.this, "Thank you! Permission granted", Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(MainActivity.this, "Permission Denied", Toast.LENGTH_SHORT).show();
                 }
-
-                else{
-                    Toast.makeText(this,"Permission Denied",Toast.LENGTH_SHORT).show();
-                }
-        }
-
+            }
     }
 
     private void selectImage() {
